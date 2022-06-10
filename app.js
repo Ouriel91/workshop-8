@@ -9,7 +9,6 @@ const app = express();
 
 app.use([logger, compression(), express.json()]);
 app.use('/static', express.static('public'));
-
 app.use('/jedi', jediRouter);
 
 app.get('/', (req, res) => {
@@ -29,17 +28,17 @@ app.post('/error', async (req, res, next) => {
 });
 
 
-app.use(errorHandler);
-
 process.on('unhandledRejection', (reason, promise) => {
     console.log("Unhandled Rejection", reason.message);
-    throw reason;
+    throw reason
 });
 
 process.on('uncaughtException', (error) => {
     console.log("Uncaught Exception", error.message);
     process.exit(1);
 });
+
+app.use(errorHandler);
 
 app.listen(port, () => {
     console.log("Server started on port", port);

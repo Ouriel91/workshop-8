@@ -48,9 +48,75 @@ const jediSchema = {
         },
         isLength: {
             errorMessage: 'Name should be 4 chars long',
-            options: { min: 4 },
-        }
-    }
+            options: {min: 4},
+        },
+        in: ['body']
+    },
+    height: {
+        isInt: {
+            options: {
+                gt: 10,
+                lt: 300
+            },
+            errorMessage: "Height should be between 10 and 300"
+        },
+        in: ['body']
+    },
+    mass: {
+        isInt: {
+            options: {
+                gt: 0
+            },
+            errorMessage: "Mass should be greater than 0"
+        },
+        in: ['body']
+    },
+    hair_color: {
+        isString: {
+            errorMessage: "Hair color is wrong"
+        },
+        isLength: {
+            errorMessage: 'hair_color should be 3 chars long',
+            options: {min: 3},
+        },
+        in: ['body']
+    },
+    skin_color: {
+        isString: {
+            errorMessage: "skin_color color is wrong"
+        },
+        isLength: {
+            errorMessage: 'skin_color should be 3 chars long',
+            options: {min: 3},
+        },
+        in: ['body']
+    },
+    birth_year: {
+        isString: {
+            errorMessage: "birth_year color is wrong"
+        },
+        isLength: {
+            errorMessage: 'birth_year should be 4 chars long',
+            options: {min: 4},
+        },
+        in: ['body']
+    },
+    eye_color: {
+        isString: {
+            errorMessage: "eye_color color is wrong"
+        },
+        isLength: {
+            errorMessage: 'eye_color should be 4 chars long',
+            options: {min: 4},
+        },
+        in: ['body']
+    },
+    gender: {
+        isString: {
+            errorMessage: "Gender is wrong"
+        },
+        in: ['body']
+    },
 };
 
 module.exports = {
